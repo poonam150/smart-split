@@ -1,9 +1,19 @@
-// This file acts like a "Traffic Cop" for our data.
-// It decides how to change the state based on the "action" we send it.
-
 export default (state, action) => {
   switch (action.type) {
-    // We will add cases here later, like "ADD_EXPENSE" or "DELETE_USER"
+    case 'ADD_USER':
+      return {
+        ...state,
+        users: [action.payload, ...state.users]
+      };
+
+    // NEW CODE STARTS HERE
+    case 'ADD_EXPENSE':
+      return {
+        ...state,
+        expenses: [action.payload, ...state.expenses]
+      };
+    // NEW CODE ENDS HERE
+
     default:
       return state;
   }
