@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { GlobalContext } from '../context/GlobalContext';
 import { v4 as uuidv4 } from 'uuid';
+import { toast } from 'react-hot-toast';
 
 export const AddExpense = () => {
   const { users, addExpense } = useContext(GlobalContext);
@@ -42,6 +43,7 @@ export const AddExpense = () => {
     };
 
     addExpense(newExpense);
+    toast.success('Expense Added! 💸');
     
     // Reset Form
     setDescription('');

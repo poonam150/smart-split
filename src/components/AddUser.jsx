@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { GlobalContext } from '../context/GlobalContext';
 import { v4 as uuidv4 } from 'uuid'; // Generates unique IDs
+import { toast } from 'react-hot-toast';
 
 export const AddUser = () => {
   const [name, setName] = useState('');
@@ -17,6 +18,7 @@ export const AddUser = () => {
     };
 
     addUser(newUser); // Sends data to the Context
+    toast.success('Member Added! 🚀');
     setName(''); // Clears the input box
   };
 

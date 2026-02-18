@@ -12,7 +12,17 @@ export default (state, action) => {
         ...state,
         expenses: [action.payload, ...state.expenses]
       };
-    // NEW CODE ENDS HERE
+      // NEW CODE STARTS HERE
+    case 'DELETE_TRANSACTION':
+      return {
+        ...state,
+        expenses: state.expenses.filter(expense => expense.id !== action.payload)
+      };
+    case 'DELETE_USER':
+      return {
+        ...state,
+        users: state.users.filter(user => user.id !== action.payload)
+      };
 
     default:
       return state;
